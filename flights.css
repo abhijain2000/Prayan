@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Beyond';
-    src: url('/assets/fonts/beyond_the_mountains.otf');
+    src: url('./assets/fonts/beyond_the_mountains.otf');
 }
 
 * {
@@ -41,7 +41,8 @@ body {
     display: flex;
 }
 
-.navbar__register a, .nav__items a{
+.navbar__register a,
+.nav__items a {
     color: white;
 }
 
@@ -50,63 +51,81 @@ body {
     cursor: pointer;
 }
 
-.row {
-    display: flex;
-    flex-wrap: wrap;
-}
-.login_body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 10%;
-    padding: 2rem;
-    border-radius: 50px 0px 50px 0px;
-    background-color: #007bff;
-}
-.login_container{
-    padding: 1rem;
-    height: 50%;
-    width: fit-content;
-    text-align: center;
-    justify-content: space-evenly;
-    z-index: 50;
+.header__mid__content h2 {
+    font-family: 'Beyond';
+    font-size: 30px;
 }
 
-.login_container input{
-    padding: 1rem;
-    border: #007bff;
-    border-radius: 10px;
-    margin: 1rem 0rem;
-
+.header__mid__content h1 {
+    font-family: "Open Sans";
+    font-weight: 900;
+    font-size: 40px;
 }
 
-.login_container label{
-    color: whitesmoke;
-    font-weight: 100;
-    font-style: italic;
-}
-
-.login_header{
-    margin: 1rem;
-    align-items: center;
-    justify-content: center;
-}
-
-.btn_login input{
-    background-color: green;
-    color: white;
+.button__explore {
+    font-family: 'Open Sans', serif;
+    width: 120px;
+    height: 30px;
+    font-size: 10px;
     border: none;
+    border-radius: 100px;
+    color: white;
+    background: linear-gradient(45deg, #fd7d14, #007bff);
+}
+
+.hotel__image {
+    border-radius: 6px 6px 0 0;
+    width: 100%;
+    height: 359px;
+}
+
+.food__list__container {
+    position: relative;
+    margin: 5rem 0;
+    padding: 1rem;
+}
+
+.food__menu__card__list {
     width: 100%;
 }
 
-.newAccount a {
-    font-size: small;
+.food__menu__card__image {
+    border-radius: 6px 6px 0 0;
+    width: 100%;
 }
 
-.login_header img{
-    width: 150px;
-    margin-top: 20px;
+.food__menu__card__details {
+    padding: 1rem;
+    text-align: left;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.food__menu__card__title {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    color: red;
+    font-weight: 900;
+}
+
+.food__menu__card {
+    margin-top: 1rem;
+}
+
+.food__list__container__button {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.food__list__container__button__work {
+    border: none;
+    border-radius: 5px;
+    font-size: large;
+    padding: 1rem;
+    width: 100%;
+    background-image: linear-gradient(to right, #ff512f 0, #dd2476 51%, #ff512f 100%);
+    color: white;
 }
 
 @media(min-width:1024px) {
@@ -127,37 +146,48 @@ body {
         display: flex;
         gap: 50px;
     }
-
+    .button__explore {
+        width: 300px;
+        height: 80px;
+        font-size: 40px;
+        border: none;
+        border-radius: 100px;
+        background: linear-gradient(45deg, #fd7e14, #007bff);
+    }
+    .button__explore:hover {
+        cursor: pointer;
+        background: none;
+    }
     #items__home a,
     #items__about a,
     #items__offers a,
     #items__contact a,
     #nav__login a,
-    #nav__register a{
+    #nav__register a {
         padding: 5px 0;
         cursor: pointer;
     }
-    #items__home:hover a{
+    #items__home:hover a {
         border-bottom: 2px solid cyan;
         color: orange;
     }
-    #items__about:hover a{
+    #items__about:hover a {
         border-bottom: 2px solid cyan;
         color: orange;
     }
-    #items__offers:hover a{
+    #items__offers:hover a {
         border-bottom: 2px solid cyan;
         color: orange;
     }
-    #items__contact:hover a{
+    #items__contact:hover a {
         border-bottom: 2px solid cyan;
         color: orange;
     }
-    #nav__login:hover a{
+    #nav__login:hover a {
         border-bottom: 2px solid greenyellow;
         color: orangered;
     }
-    #nav__register:hover a{
+    #nav__register:hover a {
         border-bottom: 2px solid greenyellow;
         color: orangered;
     }
@@ -167,29 +197,51 @@ body {
         gap: 10px;
         letter-spacing: 1px;
     }
-
-    .login_body{
-        flex-direction: row;
-        justify-content: space-evenly;
+    .header__mid {
+        text-align: center;
         align-items: center;
-        margin:10% 15%;
     }
-
-    .login_header{
-        font-size: x-large;
+    .header__mid__content h2 {
+        font-family: 'Beyond';
+        font-size: 80px;
     }
-
-    .newAccount, .newAccount a{
-        font-size: large;
+    .header__mid__content h1 {
+        font-family: "Open Sans";
+        font-weight: 900;
+        font-size: 92px;
     }
-
-    .login_container label{
+    .food__menu__card__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        padding-top: 2rem;
+        margin-top: 1rem;
+    }
+    .food__list__container {
+        position: relative;
+        margin: 5rem 0;
+    }
+    .food__menu__card {
+        background-color: white;
+        border-radius: 6px;
+        flex-basis: 25%;
+    }
+    .food__list__container .text-x1 {
+        text-align: center;
+        font-size: 3rem;
+    }
+    .food__list__container__button__work {
+        cursor: pointer;
+        transition: 0.5s;
+        width: 35%;
         color: black;
+        background: rgba(0, 0, 0, 0);
     }
-
-    .login_header img{
-        width: 350px;
-        margin-top: 20px;
+    .food__list__container__button__work:hover {
+        width: 25%;
+        background: linear-gradient(45deg, #fd7e14, #007bff);
+        border-radius: 10px 10px 10px 10px;
+        color: white;
     }
     .footer {
         background-color: rgb(0, 0, 0);

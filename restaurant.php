@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prayan</title>
-    <link rel="stylesheet" href="hotel.css">
+    <link rel="stylesheet" href="./restaurant.css">
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,12 +25,12 @@
             <div class="navbar__nav__items">
                 <div class="nav__items">
                     <h5 id="items__home"> <a href="./index.php">HOME</a></h5>
-                    <h5 id="items__about"> <a href="./about.html">ABOUT US</a></h5>
-                    <h5 id="items__offers"> <a href="./header/offer.html">OFFERS</a></h5>
-                    <h5 id="items__contact"><a href="./header/contact.html">Contact</a></h5>
+                    <h5 id="items__hotel"> <a href="./hotel.php">Hotel</a></h5>
+                    <h5 id="items__trip"> <a href="./trip.php">Trip</a></h5>
+                    <h5 id="items__flight"><a href="./flights.php">Flight</a></h5>
                 </div>
             </div>
-            <div class="navbar__account">
+            <div class="navbar__account" id="navbar_acc">
                 <div class="navbar__register">
                     <h5 id="nav__login"> <a href="./login.html"> LOGIN</a></h5>
                     <h4>|</h4>
@@ -42,221 +42,240 @@
 </header>
 
 <body>
+    <?php
+    session_start();
+    if (isset($_SESSION['email'])) {
+    ?>
+        <script>
+            let elements = document.getElementsByClassName("navbar__register");
+            while (elements.length > 0) elements[0].remove();
+            const elem = document.getElementById('navbar_acc');
+            const div = document.createElement('div');
+            div.className = "navbar__register";
+            const h5 = document.createElement('h5');
+            const a = document.createElement('a');
+            h5.id = "nav__profile";
+            a.setAttribute("href", "./profile.php");
+            a.text = 'PROFILE';
+            h5.appendChild(a);
+            div.append(h5);
+            elem.append(div);
+        </script>
+
+    <?php
+    }
+    ?>
 
     <section class="food__list__container ">
         <div class="food_list__container__back "></div>
-        <h1 class="text-x1 ">Top Hotels</h1>
+        <h1 class="text-x1 ">Explore Restaurant</h1>
         <div class="food__menu__card__list ">
             <div class="food__menu__card ">
-                <img src="./assets/dream_hotel.png " alt="resortimage " class="hotel__image " />
+                <img src="./assets/rest1.png " alt="resortimage " class="hotel__image " />
                 <div class="food__menu__card__details ">
                     <div>
-                        <h4 class="food__menu__card__title "><b>Vertex</b></h4>
+                        <h4 class="food__menu__card__title "><b>Indian Eagle</b></h4>
                         <p>
-                            Panaji
-                            <span style="color: red ">Goa</span>
+                            Chennai
+                            <span style="color: red ">Tamil Nadu</span>
                         </p>
                     </div>
                     <div>
-                        <h4 style="color: red "> Rs-4,000</h4>
+                        <h4 style="color: red "> Rs-1,000</h4>
                     </div>
                 </div>
             </div>
             <div class="food__menu__card ">
-                <img src="./assets/udipur_hotel.pngdream_hotel.png " alt="udipur_palaceimage " class="hotel__image " />
+                <img src="./assets/rest2.png " alt="udipur_palaceimage " class="hotel__image " />
                 <div class="food__menu__card__details ">
                     <div>
-                        <h4 class="food__menu__card__title "><b>Udipur Palace</b></h4>
+                        <h4 class="food__menu__card__title "><b>Swadesi Zaika</b></h4>
                         <p>
-                            Udipur
-                            <span style="color: red ">Rajasthan</span>
+                            Noida
+                            <span style="color: red ">UtterPradesh</span>
                         </p>
                     </div>
                     <div>
-                        <h4 style="color: red "> Rs-5,000</h4>
+                        <h4 style="color: red "> Rs-1,500</h4>
                     </div>
                 </div>
             </div>
             <div class="food__menu__card ">
-                <img src="./assets/taj_hotel.pngdream_hotel.png " alt="taj_hotelimage " class="hotel__image " />
+                <img src="./assets/rest3.png " alt="taj_hotelimage " class="hotel__image " />
                 <div class="food__menu__card__details ">
                     <div>
-                        <h4 class="food__menu__card__title "><b>Taj Hotel</b></h4>
-                        <p>
-                            Mumbai
-                            <span style="color: red "> Maharashtra</span>
-                        </p>
-                    </div>
-                    <div>
-                        <h4 style="color: red "> Rs-10,000</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-    <section class="food__list__container ">
-        <div class="food_list__container__back "></div>
-
-        <div class="food__menu__card__list ">
-            <div class="food__menu__card ">
-                <img src="./assets/hotel4.pngdream_hotel.png " alt="resortimage " class="hotel__image " />
-                <div class="food__menu__card__details ">
-                    <div>
-                        <h4 class="food__menu__card__title "><b>Mahali Mazuri</b></h4>
-                        <p>
-                            Masai Mara
-                            <span style="color: red ">Kenya</span>
-                        </p>
-                    </div>
-                    <div>
-                        <h4 style="color: red "> Rs-23,000</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="food__menu__card ">
-                <img src="./assets/hotel5.pngdream_hotel.png " alt="udipur_palaceimage " class="hotel__image " />
-                <div class="food__menu__card__details ">
-                    <div>
-                        <h4 class="food__menu__card__title "><b>Oppsite House</b></h4>
-                        <p>
-                            Dongdan
-                            <span style="color: red ">Beijing</span>
-                        </p>
-                    </div>
-                    <div>
-                        <h4 style="color: red "> Rs-18,000</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="food__menu__card ">
-                <img src="./assets/hotel6.pngdream_hotel.png " alt="taj_hotelimage " class="hotel__image " />
-                <div class="food__menu__card__details ">
-                    <div>
-                        <h4 class="food__menu__card__title "><b>Capella Ubud</b></h4>
-                        <p>
-                            Bali
-                            <span style="color: red ">Indonesia</span>
-                        </p>
-                    </div>
-                    <div>
-                        <h4 style="color: red "> Rs-21,000</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-
-    <section class="food__list__container ">
-        <div class="food_list__container__back "></div>
-        <div class="food__menu__card__list ">
-            <div class="food__menu__card ">
-                <img src="./assets/hotel7.pngdream_hotel.png " alt="resortimage " class="hotel__image " />
-                <div class="food__menu__card__details ">
-                    <div>
-                        <h4 class="food__menu__card__title "><b>The Oberoi</b></h4>
-                        <p>
-                            New Delhi
-                            <span style="color: red ">Delhi</span>
-                        </p>
-                    </div>
-                    <div>
-                        <h4 style="color: red "> Rs-12,000</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="food__menu__card ">
-                <img src="./assets/hotel8.pngdream_hotel.png " alt="udipur_palaceimage " class="hotel__image " />
-                <div class="food__menu__card__details ">
-                    <div>
-                        <h4 class="food__menu__card__title "><b>Mandarin</b></h4>
-                        <p>
-                            Milan
-                            <span style="color: red ">Milano</span>
-                        </p>
-                    </div>
-                    <div>
-                        <h4 style="color: red "> Rs-5,000</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="food__menu__card ">
-                <img src="./assets/hotel9.pngdream_hotel.png " alt="taj_hotelimage " class="hotel__image " />
-                <div class="food__menu__card__details ">
-                    <div>
-                        <h4 class="food__menu__card__title "><b>Manoir Hovey</b></h4>
-                        <p>
-                            North Hatley
-                            <span style="color: red "> Quebec</span>
-                        </p>
-                    </div>
-                    <div>
-                        <h4 style="color: red "> Rs-14,000</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-
-    <section class="food__list__container ">
-        <div class="food_list__container__back "></div>
-        <div class="food__menu__card__list ">
-            <div class="food__menu__card ">
-                <img src="./assets/hotel10.pngdream_hotel.png " alt="resortimage " class="hotel__image " />
-                <div class="food__menu__card__details ">
-                    <div>
-                        <h4 class="food__menu__card__title "><b>Taj Lake Palace</b></h4>
+                        <h4 class="food__menu__card__title "><b>Indian Corner</b></h4>
                         <p>
                             Mumbai
                             <span style="color: red ">Maharashtra</span>
                         </p>
                     </div>
                     <div>
-                        <h4 style="color: red "> Rs-9,000</h4>
+                        <h4 style="color: red "> Rs-800</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section class="food__list__container ">
+        <div class="food_list__container__back "></div>
+
+        <div class="food__menu__card__list ">
+            <div class="food__menu__card ">
+                <img src="./assets/rest14.png " alt="resortimage " class="hotel__image " />
+                <div class="food__menu__card__details ">
+                    <div>
+                        <h4 class="food__menu__card__title "><b>The Gourmet Kitchen</b></h4>
+                        <p>
+                            Los Angeles
+                            <span style="color: red ">California</span>
+                        </p>
+                    </div>
+                    <div>
+                        <h4 style="color: red "> Rs-1,00$</h4>
                     </div>
                 </div>
             </div>
             <div class="food__menu__card ">
-                <img src="./assets/hotel11.pngdream_hotel.png " alt="udipur_palaceimage " class="hotel__image " />
+                <img src="./assets/rest5.png " alt="udipur_palaceimage " class="hotel__image " />
                 <div class="food__menu__card__details ">
                     <div>
-                        <h4 class="food__menu__card__title "><b> RAAS</b></h4>
+                        <h4 class="food__menu__card__title "><b>Dinner in the Sky</b></h4>
                         <p>
-                            Jodhpur
-                            <span style="color: red ">Rajasthan</span>
+                            Manali
+                            <span style="color: red ">Himachal Pradesh</span>
                         </p>
                     </div>
                     <div>
-                        <h4 style="color: red "> Rs-13,000</h4>
+                        <h4 style="color: red "> Rs-1,500</h4>
                     </div>
                 </div>
             </div>
             <div class="food__menu__card ">
-                <img src="./assets/hotel12.pngdream_hotel.png " alt="taj_hotelimage " class="hotel__image " />
+                <img src="./assets/rest6.png " alt="taj_hotelimage " class="hotel__image " />
                 <div class="food__menu__card__details ">
                     <div>
-                        <h4 class="food__menu__card__title "><b>The Roundtree</b></h4>
+                        <h4 class="food__menu__card__title "><b>The Sweet Jar</b></h4>
                         <p>
-                            Amagansett
-                            <span style="color: red ">New Work</span>
+                            Birmingham
+                            <span style="color: red ">England</span>
                         </p>
                     </div>
                     <div>
-                        <h4 style="color: red "> Rs-21,000</h4>
+                        <h4 style="color: red "> Rs-800</h4>
                     </div>
-                    <br>
                 </div>
             </div>
         </div>
 
     </section>
 
+    <section class="food__list__container ">
+        <div class="food_list__container__back "></div>
 
+        <div class="food__menu__card__list ">
+            <div class="food__menu__card ">
+                <img src="./assets/rest7.png " alt="resortimage " class="hotel__image " />
+                <div class="food__menu__card__details ">
+                    <div>
+                        <h4 class="food__menu__card__title "><b>Boulud Sud</b></h4>
+                        <p>
+                            Colmar
+                            <span style="color: red ">France</span>
+                        </p>
+                    </div>
+                    <div>
+                        <h4 style="color: red "> Rs-1,00$</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="food__menu__card ">
+                <img src="./assets/rest8.png " alt="udipur_palaceimage " class="hotel__image " />
+                <div class="food__menu__card__details ">
+                    <div>
+                        <h4 class="food__menu__card__title "><b>Wheatless Eats</b></h4>
+                        <p>
+                            Manchester
+                            <span style="color: red ">England</span>
+                        </p>
+                    </div>
+                    <div>
+                        <h4 style="color: red "> Rs-1,500</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="food__menu__card ">
+                <img src="./assets/rest9.png " alt="taj_hotelimage " class="hotel__image " />
+                <div class="food__menu__card__details ">
+                    <div>
+                        <h4 class="food__menu__card__title "><b>Roti Mahal </b></h4>
+                        <p>
+                            Patna
+                            <span style="color: red ">Bihar</span>
+                        </p>
+                    </div>
+                    <div>
+                        <h4 style="color: red "> Rs-800</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="food__list__container ">
+        <div class="food_list__container__back "></div>
+
+        <div class="food__menu__card__list ">
+            <div class="food__menu__card ">
+                <img src="./assets/rest10.png " alt="resortimage " class="hotel__image " />
+                <div class="food__menu__card__details ">
+                    <div>
+                        <h4 class="food__menu__card__title "><b>Ziti the Great</b></h4>
+                        <p>
+                            Rome
+                            <span style="color: red ">Italy</span>
+                        </p>
+                    </div>
+                    <div>
+                        <h4 style="color: red "> Rs-1,000</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="food__menu__card ">
+                <img src="./assets/rest11.png " alt="udipur_palaceimage " class="hotel__image " />
+                <div class="food__menu__card__details ">
+                    <div>
+                        <h4 class="food__menu__card__title "><b>Cheddar's Scratch Kitchen </b></h4>
+                        <p>
+                            New York
+                            <span style="color: red ">USA</span>
+                        </p>
+                    </div>
+                    <div>
+                        <h4 style="color: red "> Rs-1,500</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="food__menu__card ">
+                <img src="./assets/rest13.png " alt="taj_hotelimage " class="hotel__image " />
+                <div class="food__menu__card__details ">
+                    <div>
+                        <h4 class="food__menu__card__title "><b>The Capital Grille</b></h4>
+                        <p>
+                            California
+                            <span style="color: red ">USA</span>
+                        </p>
+                    </div>
+                    <div>
+                        <h4 style="color: red "> Rs-800</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
 </body>
 
 <footer class="footer ">

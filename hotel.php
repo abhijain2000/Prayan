@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prayan</title>
-    <link rel="stylesheet" href="./restaurant.css">
+    <link rel="stylesheet" href="hotel.css">
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,23 +18,23 @@
     <nav class="navbar">
         <div class="navbar__top">
             <div class="navbar__brand">
-                <a href="./index.html" rel="noopener noreferrer">
+                <a href="./index.php" rel="noopener noreferrer">
                     <img src="./assets/logo.png" alt="logo" class="brand__logo">
                 </a>
             </div>
             <div class="navbar__nav__items">
                 <div class="nav__items">
-                    <h5 id="items__home"> <a href="./index.html">HOME</a></h5>
-                    <h5 id="items__about"> <a href="./about.html">ABOUT US</a></h5>
-                    <h5 id="items__offers"> <a href="./header/offer.html">OFFERS</a></h5>
-                    <h5 id="items__contact"><a href="./header/contact.html">Contact</a></h5>
+                    <h5 id="items__home"> <a href="./index.php">HOME</a></h5>
+                    <h5 id="items__flight"> <a href="./flights.php">Flight</a></h5>
+                    <h5 id="items__trip"> <a href="./trip.php">Trip</a></h5>
+                    <h5 id="items__restaurant"><a href="./restaurant.php">Restaurant</a></h5>
                 </div>
             </div>
-            <div class="navbar__account">
+            <div class="navbar__account" id="navbar_acc">
                 <div class="navbar__register">
-                    <h5 id="nav__login"> <a href="./userAccount/login.html"> LOGIN</a></h5>
+                    <h5 id="nav__login"> <a href="./login.html"> LOGIN</a></h5>
                     <h4>|</h4>
-                    <h5 id="nav__register"> <a href="./userAccount/signup.html">REGISTER</a></h5>
+                    <h5 id="nav__register"> <a href="./signup.php">REGISTER</a></h5>
                 </div>
             </div>
         </div>
@@ -42,106 +42,76 @@
 </header>
 
 <body>
+    <?php
+    session_start();
+    if (isset($_SESSION['email'])) {
+    ?>
+        <script>
+            let elements = document.getElementsByClassName("navbar__register");
+            while (elements.length > 0) elements[0].remove();
+            const elem = document.getElementById('navbar_acc');
+            const div = document.createElement('div');
+            div.className = "navbar__register";
+            const h5 = document.createElement('h5');
+            const a = document.createElement('a');
+            h5.id = "nav__profile";
+            a.setAttribute("href", "./profile.php");
+            a.text = 'PROFILE';
+            h5.appendChild(a);
+            div.append(h5);
+            elem.append(div);
+        </script>
 
+    <?php
+    }
+    ?>
 
     <section class="food__list__container ">
-
-        <h1 class="text-x1 ">Flights</h1>
+        <div class="food_list__container__back "></div>
+        <h1 class="text-x1 ">Top Hotels</h1>
         <div class="food__menu__card__list ">
             <div class="food__menu__card ">
-                <img src="./assets/air1.jpeg " alt="resortimage " class="hotel__image " />
+                <img src="./assets/dream_hotel.png " alt="resortimage " class="hotel__image " />
                 <div class="food__menu__card__details ">
                     <div>
-                        <h4 class="food__menu__card__title "><b>Singapore Airline</b></h4>
+                        <h4 class="food__menu__card__title "><b>Vertex</b></h4>
                         <p>
-                            Changi
-                            <span style="color: red ">Singapore</span>
+                            Panaji
+                            <span style="color: red ">Goa</span>
                         </p>
                     </div>
                     <div>
-                        <!-- <h4 style="color: red "> Rs-3,500</h4> -->
+                        <h4 style="color: red "> Rs-4,000</h4>
                     </div>
                 </div>
             </div>
             <div class="food__menu__card ">
-                <img src="./assets/air2.jpg " alt="udipur_palaceimage " class="hotel__image " />
+                <img src="./assets/udipur_hotel.png " alt="udipur_palaceimage " class="hotel__image " />
                 <div class="food__menu__card__details ">
                     <div>
-                        <h4 class="food__menu__card__title "><b>Paramount Airway</b></h4>
+                        <h4 class="food__menu__card__title "><b>Udipur Palace</b></h4>
                         <p>
-                            Chennai
-                            <span style="color: red "> Tamil Nadu</span>
+                            Udipur
+                            <span style="color: red ">Rajasthan</span>
                         </p>
                     </div>
                     <div>
-                        <!-- <h4 style="color: red "> Rs-4,000</h4> -->
+                        <h4 style="color: red "> Rs-5,000</h4>
                     </div>
                 </div>
             </div>
             <div class="food__menu__card ">
-                <img src="./assets/air3.jpg " alt="taj_hotelimage " class="hotel__image " />
+                <img src="./assets/taj_hotel.png " alt="taj_hotelimage " class="hotel__image " />
                 <div class="food__menu__card__details ">
                     <div>
-                        <h4 class="food__menu__card__title "><b>Emirates</b></h4>
+                        <h4 class="food__menu__card__title "><b>Taj Hotel</b></h4>
                         <p>
-                            Dubai
-                            <span style="color: red ">UAE</span>
+                            Mumbai
+                            <span style="color: red "> Maharashtra</span>
                         </p>
                     </div>
                     <div>
-                        <!-- <h4 style="color: red "> Rs-3,000</h4> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-    <section class="food__list__container ">
-
-
-        <div class="food__menu__card__list ">
-            <div class="food__menu__card ">
-                <img src="./assets/fli.png" alt="resortimage " class="hotel__image " />
-                <div class="food__menu__card__details ">
-                    <div>
-                        <h4 class="food__menu__card__title "><b>IndiGo</b></h4>
-                        <p>
-                            Delhi
-                            <span style="color: red ">India</span>
-                        </p>
-                    </div>
-                    <div>
-                        <!-- <h4 style="color: red "> Rs-1,00$</h4> -->
-                    </div>
-                </div>
-            </div>
-            <div class="food__menu__card ">
-                <img src="./assets/air4.png " alt="udipur_palaceimage " class="hotel__image " />
-                <div class="food__menu__card__details ">
-                    <div>
-                        <h4 class="food__menu__card__title "><b>Air France</b></h4>
-                        <p>
-                            Paris
-                            <span style="color: red ">France</span>
-                        </p>
-                    </div>
-                    <div>
-                        <!-- <h4 style="color: red "> Rs-1,500</h4> -->
-                    </div>
-                </div>
-            </div>
-            <div class="food__menu__card ">
-                <img src="./assets/air5.png " alt="taj_hotelimage " class="hotel__image " />
-                <div class="food__menu__card__details ">
-                    <div>
-                        <h4 class="food__menu__card__title "><b>Swiss International Air Lines</b></h4>
-                        <p>
-                            Bern
-                            <span style="color: red ">Switzerland</span>
-                        </p>
-                    </div>
-                    <div>
-                        <!-- <h4 style="color: red "> Rs-800</h4> -->
+                        <h4 style="color: red "> Rs-10,000</h4>
                     </div>
                 </div>
             </div>
@@ -150,110 +120,166 @@
     </section>
 
     <section class="food__list__container ">
+        <div class="food_list__container__back "></div>
 
-        <h1 class="text-x1 ">Cabs</h1>
         <div class="food__menu__card__list ">
             <div class="food__menu__card ">
-                <img src="./assets/taxi-luxury1.png " alt="resortimage " class="hotel__image " />
+                <img src="./assets/hotel4.png " alt="resortimage " class="hotel__image " />
                 <div class="food__menu__card__details ">
                     <div>
-                        <h4 class="food__menu__card__title "><b>Mercedes car</b></h4>
+                        <h4 class="food__menu__card__title "><b>Mahali Mazuri</b></h4>
                         <p>
-                            Rome
-                            <span style="color: red "> Italy</span>
+                            Masai Mara
+                            <span style="color: red ">Kenya</span>
                         </p>
                     </div>
                     <div>
-                        <!-- <h4 style="color: red "> Rs-1,00$</h4> -->
+                        <h4 style="color: red "> Rs-23,000</h4>
                     </div>
                 </div>
             </div>
             <div class="food__menu__card ">
-                <img src="./assets/cab11.png " alt="udipur_palaceimage " class="hotel__image " />
+                <img src="./assets/hotel5.png " alt="udipur_palaceimage " class="hotel__image " />
                 <div class="food__menu__card__details ">
                     <div>
-                        <h4 class="food__menu__card__title "><b>Audy Car</b></h4>
+                        <h4 class="food__menu__card__title "><b>Oppsite House</b></h4>
                         <p>
-                            Washington dc
-                            <span style="color: red ">USA</span>
+                            Dongdan
+                            <span style="color: red ">Beijing</span>
                         </p>
                     </div>
                     <div>
-                        <!-- <h4 style="color: red "> Rs-1,500</h4> -->
+                        <h4 style="color: red "> Rs-18,000</h4>
                     </div>
                 </div>
             </div>
             <div class="food__menu__card ">
-                <img src="./assets/cab10.png " alt="taj_hotelimage " class="hotel__image " />
+                <img src="./assets/hotel6.png " alt="taj_hotelimage " class="hotel__image " />
                 <div class="food__menu__card__details ">
                     <div>
-                        <h4 class="food__menu__card__title "><b>BMW Car </b></h4>
+                        <h4 class="food__menu__card__title "><b>Capella Ubud</b></h4>
                         <p>
-                            Patna
-                            <span style="color: red ">Bihar</span>
+                            Bali
+                            <span style="color: red ">Indonesia</span>
                         </p>
                     </div>
                     <div>
-                        <!-- <h4 style="color: red "> Rs-800</h4> -->
+                        <h4 style="color: red "> Rs-21,000</h4>
                     </div>
                 </div>
             </div>
         </div>
 
     </section>
+
 
     <section class="food__list__container ">
-
-
+        <div class="food_list__container__back "></div>
         <div class="food__menu__card__list ">
             <div class="food__menu__card ">
-                <img src="./assets/cab13.png" alt="resortimage " class="hotel__image " />
+                <img src="./assets/hotel7.png " alt="resortimage " class="hotel__image " />
                 <div class="food__menu__card__details ">
                     <div>
-                        <h4 class="food__menu__card__title "><b>Maruti Suzuki</b></h4>
+                        <h4 class="food__menu__card__title "><b>The Oberoi</b></h4>
                         <p>
-                            Jaipur
-                            <span style="color: red ">Rajsthan</span>
+                            New Delhi
+                            <span style="color: red ">Delhi</span>
                         </p>
                     </div>
                     <div>
-                        <!-- <h4 style="color: red "> Rs-1,000</h4> -->
+                        <h4 style="color: red "> Rs-12,000</h4>
                     </div>
                 </div>
             </div>
             <div class="food__menu__card ">
-                <img src="./assets/cab14.png " alt="udipur_palaceimage " class="hotel__image " />
+                <img src="./assets/hotel8.png " alt="udipur_palaceimage " class="hotel__image " />
                 <div class="food__menu__card__details ">
                     <div>
-                        <h4 class="food__menu__card__title "><b>Hyundai Car </b></h4>
+                        <h4 class="food__menu__card__title "><b>Mandarin</b></h4>
                         <p>
-                            London
-                            <span style="color: red ">England</span>
+                            Milan
+                            <span style="color: red ">Milano</span>
                         </p>
                     </div>
                     <div>
-                        <!-- <h4 style="color: red "> Rs-1,500</h4> -->
+                        <h4 style="color: red "> Rs-5,000</h4>
                     </div>
                 </div>
             </div>
             <div class="food__menu__card ">
-                <img src="./assets/cab15.png " alt="taj_hotelimage " class="hotel__image " />
+                <img src="./assets/hotel9.png " alt="taj_hotelimage " class="hotel__image " />
                 <div class="food__menu__card__details ">
                     <div>
-                        <h4 class="food__menu__card__title "><b>Tata Car</b></h4>
+                        <h4 class="food__menu__card__title "><b>Manoir Hovey</b></h4>
                         <p>
-                            Santiago
-                            <span style="color: red ">Chile</span>
+                            North Hatley
+                            <span style="color: red "> Quebec</span>
                         </p>
                     </div>
                     <div>
-                        <!-- <h4 style="color: red "> Rs-800</h4> -->
+                        <h4 style="color: red "> Rs-14,000</h4>
                     </div>
                 </div>
             </div>
         </div>
 
     </section>
+
+
+    <section class="food__list__container ">
+        <div class="food_list__container__back "></div>
+        <div class="food__menu__card__list ">
+            <div class="food__menu__card ">
+                <img src="./assets/hotel10.png " alt="resortimage " class="hotel__image " />
+                <div class="food__menu__card__details ">
+                    <div>
+                        <h4 class="food__menu__card__title "><b>Taj Lake Palace</b></h4>
+                        <p>
+                            Mumbai
+                            <span style="color: red ">Maharashtra</span>
+                        </p>
+                    </div>
+                    <div>
+                        <h4 style="color: red "> Rs-9,000</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="food__menu__card ">
+                <img src="./assets/hotel11.png " alt="udipur_palaceimage " class="hotel__image " />
+                <div class="food__menu__card__details ">
+                    <div>
+                        <h4 class="food__menu__card__title "><b> RAAS</b></h4>
+                        <p>
+                            Jodhpur
+                            <span style="color: red ">Rajasthan</span>
+                        </p>
+                    </div>
+                    <div>
+                        <h4 style="color: red "> Rs-13,000</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="food__menu__card ">
+                <img src="./assets/hotel12.png " alt="taj_hotelimage " class="hotel__image " />
+                <div class="food__menu__card__details ">
+                    <div>
+                        <h4 class="food__menu__card__title "><b>The Roundtree</b></h4>
+                        <p>
+                            Amagansett
+                            <span style="color: red ">New Work</span>
+                        </p>
+                    </div>
+                    <div>
+                        <h4 style="color: red "> Rs-21,000</h4>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
 </body>
 
 <footer class="footer ">
@@ -263,7 +289,7 @@
                 <h4>company</h4>
                 <ul>
                     <li>
-                        <a hreabout us</a>
+                        <a href="./about.html">about us</a>
                     </li>
                     <li>
                         <a href="# ">our services</a>
@@ -275,7 +301,7 @@
                         <a href="# ">Payment option</a>
                     </li>
                     <li>
-                        <a href="# ">Feedback</a>
+                        <a href="./feedback.php">Feedback</a>
                     </li>
                 </ul>
             </div>

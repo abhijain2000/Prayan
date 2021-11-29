@@ -62,32 +62,15 @@ body {
     font-size: 40px;
 }
 
-.about__us__image {
-    border-radius: 50%;
-    width: 150px;
-    margin-bottom: 1rem;
-    margin: 2rem 3.5rem;
-}
-
-.about_us__list__container {
-    margin: 2rem;
-    padding: 1rem;
-}
-
-.about__us__card__list {
-    width: 100%;
-    box-shadow: 2px 2px 10px black;
-    background-color: #fedcba7e;
-}
-
-.about__us__card {
-    margin-top: 1px;
-}
-
-.about__us__data {
-    margin-top: 2px;
-    font-size: small;
-    padding: 0.5rem;
+.button__explore {
+    font-family: 'Open Sans', serif;
+    width: 120px;
+    height: 30px;
+    font-size: 10px;
+    border: none;
+    border-radius: 100px;
+    color: white;
+    background: linear-gradient(45deg, #fd7d14, #007bff);
 }
 
 @media(min-width:1024px) {
@@ -107,6 +90,18 @@ body {
         align-items: center;
         display: flex;
         gap: 50px;
+    }
+    .button__explore {
+        width: 300px;
+        height: 80px;
+        font-size: 40px;
+        border: none;
+        border-radius: 100px;
+        background: linear-gradient(45deg, #fd7e14, #007bff);
+    }
+    .button__explore:hover {
+        cursor: pointer;
+        background: none;
     }
     #items__home a,
     #items__about a,
@@ -159,89 +154,5 @@ body {
         font-family: "Open Sans";
         font-weight: 900;
         font-size: 92px;
-    }
-    .about__us__image {
-        border-radius: 50%;
-        width: 85%;
-        margin-bottom: 1rem;
-    }
-    .about__us__card__list {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        padding-top: 2rem;
-        margin-top: 1rem;
-        background-color: #fedcba7e;
-        border-radius: 2rem;
-        width: 100%;
-        box-shadow: 2px 2px 10px black;
-    }
-    .about_us__list__container {
-        position: relative;
-        margin: 5rem;
-        text-align: center;
-        padding: 1rem;
-    }
-    .about__us__card {
-        flex: 1;
-        align-items: center;
-        margin-top: 1px;
-    }
-    .about__us__data {
-        flex: 2;
-        margin-top: 2px;
-        font-size: large;
-        padding: 0;
-    }
-    .footer {
-        background-color: rgb(0, 0, 0);
-    }
-    ul {
-        list-style: none;
-    }
-    .row {
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .footer-col {
-        width: 25%;
-        padding: 55px;
-    }
-    .footer-col h4 {
-        color: blanchedalmond;
-        font-size: 15px;
-        text-transform: capitalize;
-        margin-bottom: 30px;
-        font-weight: 500;
-        position: relative;
-    }
-    .footer-col h4::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -10px;
-        background-color: red;
-        height: 2px;
-        box-sizing: border-box;
-        width: 50px;
-    }
-    .footer-col ul li:not(:last-child) {
-        margin-bottom: 10px;
-    }
-    .footer-col ul li a {
-        font-size: 16px;
-        text-transform: capitalize;
-        color: #ffff;
-        font-weight: 300;
-        color: #bbbb;
-        display: block;
-        transition: all 0.3s ease;
-    }
-    .footer-col ul li a:hover {
-        color: #ffff;
-        padding-left: 6px;
-    }
-    #footer_logo {
-        align-self: center;
     }
 }
